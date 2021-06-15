@@ -1,0 +1,365 @@
+go list ./... | grep -Ev 'vendor|submodules|tmp' | xargs go vet
+go test -mod vendor -v  -tags "brotli" ./internal/
+=== RUN   TestParseTs_shouldParseRFC3339
+--- PASS: TestParseTs_shouldParseRFC3339 (0.00s)
+=== RUN   TestParseTs_shouldFailOnWrongFormat
+--- PASS: TestParseTs_shouldFailOnWrongFormat (0.00s)
+=== RUN   TestParseTs_shouldFailOnBadTimeString
+--- PASS: TestParseTs_shouldFailOnBadTimeString (0.00s)
+=== RUN   TestParseTs_shouldReturnNilOnNoTime
+--- PASS: TestParseTs_shouldReturnNilOnNoTime (0.00s)
+=== RUN   TestGetBackupByName_Latest
+INFO: 2021/06/15 20:03:40.416633 LATEST backup is: 'base_000'
+--- PASS: TestGetBackupByName_Latest (0.00s)
+=== RUN   TestGetBackupByName_LatestNoBackups
+--- PASS: TestGetBackupByName_LatestNoBackups (0.00s)
+=== RUN   TestGetBackupByName_Exists
+--- PASS: TestGetBackupByName_Exists (0.00s)
+=== RUN   TestGetBackupByName_NotExists
+--- PASS: TestGetBackupByName_NotExists (0.00s)
+=== RUN   TestHandleBackupListWriteBackups
+--- PASS: TestHandleBackupListWriteBackups (0.00s)
+=== RUN   TestHandleBackupListLogError
+--- PASS: TestHandleBackupListLogError (0.00s)
+=== RUN   TestHandleBackupListLogNoBackups
+--- PASS: TestHandleBackupListLogNoBackups (0.00s)
+=== RUN   TestWritePrettyBackupList_LongColumnsValues
+--- PASS: TestWritePrettyBackupList_LongColumnsValues (0.00s)
+=== RUN   TestWritePrettyBackupList_ShortColumnsValues
+--- PASS: TestWritePrettyBackupList_ShortColumnsValues (0.00s)
+=== RUN   TestWritePrettyBackupList_WriteNoBackupList
+--- PASS: TestWritePrettyBackupList_WriteNoBackupList (0.00s)
+=== RUN   TestWritePrettyBackupList_EmptyColumnsValues
+--- PASS: TestWritePrettyBackupList_EmptyColumnsValues (0.00s)
+=== RUN   TestWriteBackupList_NoBackups
+--- PASS: TestWriteBackupList_NoBackups (0.00s)
+=== RUN   TestWriteBackupList_EmptyColumnsValues
+--- PASS: TestWriteBackupList_EmptyColumnsValues (0.00s)
+=== RUN   TestWriteBackupList_ShortColumnsValues
+--- PASS: TestWriteBackupList_ShortColumnsValues (0.00s)
+=== RUN   TestWriteBackupList_LongColumnsValues
+--- PASS: TestWriteBackupList_LongColumnsValues (0.00s)
+=== RUN   TestBackupListFindsBackups
+name     modified                  wal_segment_backup_start
+base_123 2021-06-15T20:03:40+03:00 ZZZZZZZZZZZZZZZZZZZZZZZZ
+base_456 2021-06-15T20:03:40+03:00 ZZZZZZZZZZZZZZZZZZZZZZZZ
+base_000 2021-06-15T20:03:40+03:00 ZZZZZZZZZZZZZZZZZZZZZZZZ
+--- PASS: TestBackupListFindsBackups (0.00s)
+=== RUN   TestBackupListCorrectOutput
+--- PASS: TestBackupListCorrectOutput (0.00s)
+=== RUN   TestBackupListCorrectPrettyOutput
+--- PASS: TestBackupListCorrectPrettyOutput (0.00s)
+=== RUN   TestBackupListCorrectJsonOutput
+--- PASS: TestBackupListCorrectJsonOutput (0.00s)
+=== RUN   TestBackupListCorrectPrettyJsonOutput
+--- PASS: TestBackupListCorrectPrettyJsonOutput (0.00s)
+=== RUN   TestGetBackupTimeSlices_emptyList
+--- PASS: TestGetBackupTimeSlices_emptyList (0.00s)
+=== RUN   TestGetBackupTimeSlices_List
+--- PASS: TestGetBackupTimeSlices_List (0.00s)
+=== RUN   TestGetBackupTimeSlices_OrderCheck
+--- PASS: TestGetBackupTimeSlices_OrderCheck (1.00s)
+=== RUN   TestGetGarbageFromPrefix
+--- PASS: TestGetGarbageFromPrefix (0.00s)
+=== RUN   TestGetGarbageFromPrefix_emptyNonGarbage
+--- PASS: TestGetGarbageFromPrefix_emptyNonGarbage (0.00s)
+=== RUN   TestGetGarbageFromPrefix_emptyFolders
+--- PASS: TestGetGarbageFromPrefix_emptyFolders (0.00s)
+=== RUN   TestCascadeFileCloser
+--- PASS: TestCascadeFileCloser (0.00s)
+=== RUN   TestCascadeFileCloserError
+--- PASS: TestCascadeFileCloserError (0.00s)
+=== RUN   TestCompressAndEncrypt
+--- PASS: TestCompressAndEncrypt (0.03s)
+=== RUN   TestCompressAndEncryptBigChunk
+--- PASS: TestCompressAndEncryptBigChunk (0.02s)
+=== RUN   TestCompressAndEncryptErrorPropagation
+--- PASS: TestCompressAndEncryptErrorPropagation (0.00s)
+=== RUN   TestCompressAndEncryptError
+--- PASS: TestCompressAndEncryptError (0.01s)
+=== RUN   TestCompressAndEncryptWithNoCompression
+--- PASS: TestCompressAndEncryptWithNoCompression (0.00s)
+=== RUN   TestGetMaxConcurrency_InvalidKey
+--- PASS: TestGetMaxConcurrency_InvalidKey (0.00s)
+=== RUN   TestGetMaxConcurrency_ValidKey
+--- PASS: TestGetMaxConcurrency_ValidKey (0.00s)
+=== RUN   TestGetMaxConcurrency_ValidKeyAndNegativeValue
+--- PASS: TestGetMaxConcurrency_ValidKeyAndNegativeValue (0.00s)
+=== RUN   TestGetMaxConcurrency_ValidKeyAndInvalidValue
+--- PASS: TestGetMaxConcurrency_ValidKeyAndInvalidValue (0.00s)
+=== RUN   TestGetSentinelUserData
+    configure_test.go:50: 1
+    configure_test.go:56: 1
+    configure_test.go:62: map[x:123 y:[asdasd 123]]
+--- PASS: TestGetSentinelUserData (0.00s)
+=== RUN   TestGetDataFolderPath_Default
+--- PASS: TestGetDataFolderPath_Default (0.00s)
+=== RUN   TestGetDataFolderPath_FolderNotExist
+/home/alexander/projects/wal-g/internal/test053322599
+--- PASS: TestGetDataFolderPath_FolderNotExist (0.00s)
+=== RUN   TestGetDataFolderPath_Wal
+/home/alexander/projects/wal-g/internal/test522367386
+--- PASS: TestGetDataFolderPath_Wal (0.00s)
+=== RUN   TestGetDataFolderPath_Xlog
+/home/alexander/projects/wal-g/internal/test141381681
+--- PASS: TestGetDataFolderPath_Xlog (0.00s)
+=== RUN   TestGetDataFolderPath_WalIgnoreXlog
+/home/alexander/projects/wal-g/internal/test047921628
+--- PASS: TestGetDataFolderPath_WalIgnoreXlog (0.00s)
+=== RUN   TestConfigureLogging_WhenLogLevelSettingIsNotSet
+--- PASS: TestConfigureLogging_WhenLogLevelSettingIsNotSet (0.00s)
+=== RUN   TestConfigureLogging_WhenLogLevelSettingIsSet
+/home/alexander/projects/wal-g/internal/test003163531
+--- PASS: TestConfigureLogging_WhenLogLevelSettingIsSet (0.00s)
+=== RUN   TestExtractAll_noFilesProvided
+--- PASS: TestExtractAll_noFilesProvided (0.00s)
+=== RUN   TestExtractAll_fileDoesntExist
+INFO: 2021/06/15 20:03:41.498567 Finished decompression of testdata/booba.tar
+ERROR: 2021/06/15 20:03:41.498596 testdata/booba.tar DecryptAndDecompressTar: failed to create new reader: open testdata/booba.tar: no such file or directory
+INFO: 2021/06/15 20:03:41.498650 Finished extraction of testdata/booba.tar
+INFO: 2021/06/15 20:03:41.498743 Finished decompression of testdata/booba.tar
+ERROR: 2021/06/15 20:03:41.498808 testdata/booba.tar DecryptAndDecompressTar: failed to create new reader: open testdata/booba.tar: no such file or directory
+INFO: 2021/06/15 20:03:41.498839 Finished extraction of testdata/booba.tar
+INFO: 2021/06/15 20:03:41.498915 Finished decompression of testdata/booba.tar
+ERROR: 2021/06/15 20:03:41.498956 testdata/booba.tar DecryptAndDecompressTar: failed to create new reader: open testdata/booba.tar: no such file or directory
+INFO: 2021/06/15 20:03:41.498989 Finished extraction of testdata/booba.tar
+INFO: 2021/06/15 20:03:41.499074 Finished decompression of testdata/booba.tar
+ERROR: 2021/06/15 20:03:41.499085 testdata/booba.tar DecryptAndDecompressTar: failed to create new reader: open testdata/booba.tar: no such file or directory
+INFO: 2021/06/15 20:03:41.499089 Finished extraction of testdata/booba.tar
+--- PASS: TestExtractAll_fileDoesntExist (0.00s)
+=== RUN   TestExtractAll_simpleTar
+INFO: 2021/06/15 20:03:41.499285 Finished extraction of /usr/local.tar
+--- PASS: TestExtractAll_simpleTar (0.00s)
+=== RUN   TestExtractAll_multipleTars
+INFO: 2021/06/15 20:03:41.499347 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.499568 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.499584 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.499615 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.499624 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.499669 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.499860 Finished decompression of /usr/local.tar
+--- PASS: TestExtractAll_multipleTars (0.00s)
+=== RUN   TestExtractAll_multipleConcurrentTars
+INFO: 2021/06/15 20:03:41.505608 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505621 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505659 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505661 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505705 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505707 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505734 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505790 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505831 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505860 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505871 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505893 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505900 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505921 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505928 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505946 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505953 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.505999 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506006 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506038 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506045 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506074 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506081 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506112 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506119 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506149 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506158 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506192 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506199 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506217 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506223 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506243 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506249 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506267 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506273 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506295 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506302 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506320 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506323 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506325 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506343 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506345 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506347 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506365 Finished extraction of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506367 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506369 Finished decompression of /usr/local.tar
+INFO: 2021/06/15 20:03:41.506397 Finished extraction of /usr/local.tar
+--- PASS: TestExtractAll_multipleConcurrentTars (0.00s)
+=== RUN   TestDecryptAndDecompressTar_unencrypted
+INFO: 2021/06/15 20:03:41.515814 Finished decompression of /usr/local.tar
+--- PASS: TestDecryptAndDecompressTar_unencrypted (0.01s)
+=== RUN   TestDecryptAndDecompressTar_encrypted
+--- PASS: TestDecryptAndDecompressTar_encrypted (0.02s)
+=== RUN   TestDecryptAndDecompressTar_noCrypter
+    extract_test.go:216: DecompressLz4: lz4 write failed: invalid lz4 data
+        DecryptAndDecompressTar: lz4 decompress failed. Is archive encrypted?
+        github.com/wal-g/wal-g/internal.DecryptAndDecompressTar
+        	/home/alexander/projects/wal-g/internal/extract.go:137
+        github.com/wal-g/wal-g/internal_test.TestDecryptAndDecompressTar_noCrypter
+        	/home/alexander/projects/wal-g/internal/extract_test.go:213
+        testing.tRunner
+        	/usr/local/go/src/testing/testing.go:1193
+        runtime.goexit
+        	/usr/local/go/src/runtime/asm_amd64.s:1371
+--- PASS: TestDecryptAndDecompressTar_noCrypter (0.00s)
+=== RUN   TestDecryptAndDecompressTar_wrongCrypter
+--- PASS: TestDecryptAndDecompressTar_wrongCrypter (0.04s)
+=== RUN   TestDecryptAndDecompressTar_unknownFormat
+    extract_test.go:260: WAL-G does not support the file format 'some_unsupported_file_format' in '/usr/local/test.some_unsupported_file_format'
+--- PASS: TestDecryptAndDecompressTar_unknownFormat (0.00s)
+=== RUN   TestDecryptAndDecompressTar_uncompressed
+--- PASS: TestDecryptAndDecompressTar_uncompressed (0.00s)
+=== RUN   TestS3TarBall
+--- PASS: TestS3TarBall (0.00s)
+=== RUN   TestS3DependentFunctions
+INFO: 2021/06/15 20:03:41.574510 Starting part 2 ...
+INFO: 2021/06/15 20:03:41.574591 Finished writing part 2.
+--- PASS: TestS3DependentFunctions (0.00s)
+=== RUN   TestPackFileTo
+--- PASS: TestPackFileTo (0.00s)
+=== RUN   TestConfigure
+    upload_test.go:55: 
+        	Error Trace:	upload_test.go:55
+        	            				upload_test.go:16
+        	Error:      	Received unexpected error:
+        	            	NoCredentialProviders: no valid providers in chain. Deprecated.
+        	            		For verbose messaging see aws.Config.CredentialsChainVerboseErrors
+        	            	failed to get AWS credentials; please specify AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+        	            	github.com/wal-g/storages/s3.createSession
+        	            		/home/alexander/projects/wal-g/vendor/github.com/wal-g/storages/s3/session.go:114
+        	            	github.com/wal-g/storages/s3.ConfigureFolder
+        	            		/home/alexander/projects/wal-g/vendor/github.com/wal-g/storages/s3/folder.go:108
+        	            	github.com/wal-g/wal-g/internal.ConfigureFolderForSpecificConfig
+        	            		/home/alexander/projects/wal-g/internal/configure.go:149
+        	            	github.com/wal-g/wal-g/internal.ConfigureFolder
+        	            		/home/alexander/projects/wal-g/internal/configure.go:129
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploaderWithoutCompressMethod
+        	            		/home/alexander/projects/wal-g/internal/configure.go:242
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploader
+        	            		/home/alexander/projects/wal-g/internal/configure.go:225
+        	            	github.com/wal-g/wal-g/internal_test.doConfigureWithBucketPath
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:54
+        	            	github.com/wal-g/wal-g/internal_test.TestConfigure
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:16
+        	            	testing.tRunner
+        	            		/usr/local/go/src/testing/testing.go:1193
+        	            	runtime.goexit
+        	            		/usr/local/go/src/runtime/asm_amd64.s:1371
+        	            	failed to create new session
+        	            	github.com/wal-g/storages/s3.ConfigureFolder
+        	            		/home/alexander/projects/wal-g/vendor/github.com/wal-g/storages/s3/folder.go:110
+        	            	github.com/wal-g/wal-g/internal.ConfigureFolderForSpecificConfig
+        	            		/home/alexander/projects/wal-g/internal/configure.go:149
+        	            	github.com/wal-g/wal-g/internal.ConfigureFolder
+        	            		/home/alexander/projects/wal-g/internal/configure.go:129
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploaderWithoutCompressMethod
+        	            		/home/alexander/projects/wal-g/internal/configure.go:242
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploader
+        	            		/home/alexander/projects/wal-g/internal/configure.go:225
+        	            	github.com/wal-g/wal-g/internal_test.doConfigureWithBucketPath
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:54
+        	            	github.com/wal-g/wal-g/internal_test.TestConfigure
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:16
+        	            	testing.tRunner
+        	            		/usr/local/go/src/testing/testing.go:1193
+        	            	runtime.goexit
+        	            		/usr/local/go/src/runtime/asm_amd64.s:1371
+        	            	failed to configure folder
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploaderWithoutCompressMethod
+        	            		/home/alexander/projects/wal-g/internal/configure.go:244
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploader
+        	            		/home/alexander/projects/wal-g/internal/configure.go:225
+        	            	github.com/wal-g/wal-g/internal_test.doConfigureWithBucketPath
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:54
+        	            	github.com/wal-g/wal-g/internal_test.TestConfigure
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:16
+        	            	testing.tRunner
+        	            		/usr/local/go/src/testing/testing.go:1193
+        	            	runtime.goexit
+        	            		/usr/local/go/src/runtime/asm_amd64.s:1371
+        	Test:       	TestConfigure
+    upload_test.go:61: 
+        	Error Trace:	upload_test.go:61
+        	            				upload_test.go:16
+        	Error:      	Received unexpected error:
+        	            	NoCredentialProviders: no valid providers in chain. Deprecated.
+        	            		For verbose messaging see aws.Config.CredentialsChainVerboseErrors
+        	            	failed to get AWS credentials; please specify AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+        	            	github.com/wal-g/storages/s3.createSession
+        	            		/home/alexander/projects/wal-g/vendor/github.com/wal-g/storages/s3/session.go:114
+        	            	github.com/wal-g/storages/s3.ConfigureFolder
+        	            		/home/alexander/projects/wal-g/vendor/github.com/wal-g/storages/s3/folder.go:108
+        	            	github.com/wal-g/wal-g/internal.ConfigureFolderForSpecificConfig
+        	            		/home/alexander/projects/wal-g/internal/configure.go:149
+        	            	github.com/wal-g/wal-g/internal.ConfigureFolder
+        	            		/home/alexander/projects/wal-g/internal/configure.go:129
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploaderWithoutCompressMethod
+        	            		/home/alexander/projects/wal-g/internal/configure.go:242
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploader
+        	            		/home/alexander/projects/wal-g/internal/configure.go:225
+        	            	github.com/wal-g/wal-g/internal_test.doConfigureWithBucketPath
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:60
+        	            	github.com/wal-g/wal-g/internal_test.TestConfigure
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:16
+        	            	testing.tRunner
+        	            		/usr/local/go/src/testing/testing.go:1193
+        	            	runtime.goexit
+        	            		/usr/local/go/src/runtime/asm_amd64.s:1371
+        	            	failed to create new session
+        	            	github.com/wal-g/storages/s3.ConfigureFolder
+        	            		/home/alexander/projects/wal-g/vendor/github.com/wal-g/storages/s3/folder.go:110
+        	            	github.com/wal-g/wal-g/internal.ConfigureFolderForSpecificConfig
+        	            		/home/alexander/projects/wal-g/internal/configure.go:149
+        	            	github.com/wal-g/wal-g/internal.ConfigureFolder
+        	            		/home/alexander/projects/wal-g/internal/configure.go:129
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploaderWithoutCompressMethod
+        	            		/home/alexander/projects/wal-g/internal/configure.go:242
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploader
+        	            		/home/alexander/projects/wal-g/internal/configure.go:225
+        	            	github.com/wal-g/wal-g/internal_test.doConfigureWithBucketPath
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:60
+        	            	github.com/wal-g/wal-g/internal_test.TestConfigure
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:16
+        	            	testing.tRunner
+        	            		/usr/local/go/src/testing/testing.go:1193
+        	            	runtime.goexit
+        	            		/usr/local/go/src/runtime/asm_amd64.s:1371
+        	            	failed to configure folder
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploaderWithoutCompressMethod
+        	            		/home/alexander/projects/wal-g/internal/configure.go:244
+        	            	github.com/wal-g/wal-g/internal.ConfigureUploader
+        	            		/home/alexander/projects/wal-g/internal/configure.go:225
+        	            	github.com/wal-g/wal-g/internal_test.doConfigureWithBucketPath
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:60
+        	            	github.com/wal-g/wal-g/internal_test.TestConfigure
+        	            		/home/alexander/projects/wal-g/internal/upload_test.go:16
+        	            	testing.tRunner
+        	            		/usr/local/go/src/testing/testing.go:1193
+        	            	runtime.goexit
+        	            		/usr/local/go/src/runtime/asm_amd64.s:1371
+        	Test:       	TestConfigure
+--- FAIL: TestConfigure (12.29s)
+panic: runtime error: invalid memory address or nil pointer dereference [recovered]
+	panic: runtime error: invalid memory address or nil pointer dereference
+[signal SIGSEGV: segmentation violation code=0x1 addr=0x0 pc=0x146826c]
+
+goroutine 215 [running]:
+testing.tRunner.func1.2(0x16c9ec0, 0x28806a0)
+	/usr/local/go/src/testing/testing.go:1143 +0x332
+testing.tRunner.func1(0xc0004d8900)
+	/usr/local/go/src/testing/testing.go:1146 +0x4b6
+panic(0x16c9ec0, 0x28806a0)
+	/usr/local/go/src/runtime/panic.go:965 +0x1b9
+github.com/wal-g/wal-g/internal_test.doConfigureWithBucketPath(0xc0004d8900, 0x19cbb57, 0x12, 0x19bc8ba, 0x6)
+	/home/alexander/projects/wal-g/internal/upload_test.go:62 +0x3ec
+github.com/wal-g/wal-g/internal_test.TestConfigure(0xc0004d8900)
+	/home/alexander/projects/wal-g/internal/upload_test.go:16 +0x55
+testing.tRunner(0xc0004d8900, 0x1a1cf68)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b3
+FAIL	github.com/wal-g/wal-g/internal	13.475s
+FAIL
